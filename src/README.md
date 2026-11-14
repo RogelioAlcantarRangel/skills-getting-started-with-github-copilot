@@ -7,6 +7,24 @@ A super simple FastAPI application that allows students to view and sign up for 
 - View all available extracurricular activities
 - Sign up for activities
 
+## Project Structure
+
+```
+.
+├── src/
+│   ├── app.py          # FastAPI app: in-memory activities data and API routes
+│   ├── README.md       # API documentation (this file)
+│   └── static/
+│       ├── index.html  # Layout for the activities list and signup form
+│       ├── styles.css  # Styling for the web app
+│       └── app.js      # Browser logic: fetch activities and submit signups
+├── requirements.txt    # Python dependencies (fastapi, uvicorn)
+└── .vscode/launch.json # VS Code debug config (runs uvicorn on port 8000)
+```
+
+The FastAPI app serves the static site at `/` and exposes `GET /activities`
+and `POST /activities/{activity_name}/signup`. All data is kept in memory.
+
 ## Getting Started
 
 1. Install the dependencies:
