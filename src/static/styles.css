@@ -74,13 +74,13 @@ section h3 {
   margin-bottom: 8px;
 }
 
-.activity-card .participants-section {
+.participants-section {
   margin-top: 12px;
   padding-top: 12px;
-  border-top: 1px solid #eee;
+  border-top: 1px solid #ddd;
 }
 
-.activity-card .participants-section h5 {
+.participants-section h5 {
   margin-bottom: 8px;
   font-size: 0.9rem;
   color: #555;
@@ -89,18 +89,17 @@ section h3 {
   gap: 6px;
 }
 
-.activity-card .participants-section h5::before {
-  content: "👥";
+.participants-section .people-icon {
   font-size: 0.85rem;
 }
 
-.activity-card .participants-list {
+.participants-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.activity-card .participants-list li {
+.participants-list li {
   padding: 4px 8px;
   font-size: 0.85rem;
   color: #444;
@@ -110,11 +109,11 @@ section h3 {
   margin-bottom: 4px;
 }
 
-.activity-card .participants-list li:last-child {
+.participants-list li:last-child {
   margin-bottom: 0;
 }
 
-.activity-card .participants-list li.no-participants {
+.participants-list li.no-participants {
   color: #999;
   font-style: italic;
   background-color: #fafafa;

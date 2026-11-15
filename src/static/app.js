@@ -4,6 +4,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const signupForm = document.getElementById("signup-form");
   const messageDiv = document.getElementById("message");
 
+  // Render participants as a bulleted list
+  function renderParticipants(participants) {
+    if (!participants || participants.length === 0) {
+      return '<ul class="participants-list"><li class="no-participants">No participants yet.</li></ul>';
+    }
+    const items = participants
+      .map((email) => `<li>${email}</li>`)
+      .join("");
+    return `<ul class="participants-list">${items}</ul>`;
+  }
+
   // Function to fetch activities from API
   async function fetchActivities() {
     try {
@@ -20,20 +31,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const spotsLeft = details.max_participants - details.participants.length;
 
-        const participantsHtml = details.participants.length > 0
-          ? details.participants.map(email => `<li>${email}</li>`).join('')
-          : '<li class="no-participants">No participants yet</li>';
-
         activityCard.innerHTML = `
           <h4>${name}</h4>
           <p>${details.description}</p>
           <p><strong>Schedule:</strong> ${details.schedule}</p>
           <p><strong>Availability:</strong> ${spotsLeft} spots left</p>
           <div class="participants-section">
-            <h5>Participants</h5>
-            <ul class="participants-list">
-              ${participantsHtml}
-            </ul>
+            <h5><span class="people-icon">👥</span> Participants</h5>
+            ${renderParticipants(details.participants)}
           </div>
         `;
 
@@ -72,6 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
         messageDiv.textContent = result.message;
         messageDiv.className = "success";
         signupForm.reset();
+        fetchActivities();
       } else {
         messageDiv.textContent = result.detail || "An error occurred";
         messageDiv.className = "error";
