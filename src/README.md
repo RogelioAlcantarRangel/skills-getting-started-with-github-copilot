@@ -30,16 +30,18 @@ and `POST /activities/{activity_name}/signup`. All data is kept in memory.
 1. Install the dependencies:
 
    ```
-   pip install fastapi uvicorn
+   pip install -r requirements.txt
    ```
 
-2. Run the application:
+2. Run the application from the repository root:
 
    ```
-   python app.py
+   uvicorn src.app:app --reload
    ```
 
 3. Open your browser and go to:
+   - Home page: http://localhost:8000/
+   - Static page: http://localhost:8000/static/index.html
    - API documentation: http://localhost:8000/docs
    - Alternative documentation: http://localhost:8000/redoc
 
